@@ -1,7 +1,7 @@
 const url = "http://localhost:8000"
 
-export const getAllSchools = () => {
-    return fetch(`${url}/schools`,{
+export const getAllTeachers = () => {
+    return fetch(`${url}/teachers`,{
         headers: {
             Authorization: `Token ${localStorage.getItem('auth_token')}`,
 
@@ -10,32 +10,32 @@ export const getAllSchools = () => {
     .then((response) => response.json())
 }
 
-export const createSchool = (newSchool) => {
+export const createTeacher = (newTeacher) => {
     return fetch(`${url}/schools`, {
         method: 'POST', 
         headers: {
             Authorization: `Token ${localStorage.getItem('auth_token')}`,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(newSchool),
+        body: JSON.stringify(newTeacher),
     })
     .then((response) => response.json())
 }
 
-export const updateSchool = (school) => {
-    return fetch(`${url}/schools/${school.id}`, {
+export const updateTeacher = (teacher) => {
+    return fetch(`${url}/teachers/${teacher.id}`, {
         method: 'PUT',
         headers: {
             Authorization: `Token ${localStorage.getItem('auth_token')}`,
             'Content-Type': 'application/son'
         },
-        body: JSON.stringify(school)
+        body: JSON.stringify(teacher)
     })
     .then(response => response.json())
 }
 
-export const deleteSchool = (schoolId) => {
-    return fetch(`${url}/schools/${schoolId}`, {
+export const deleteTeacher = (teacherId) => {
+    return fetch(`${url}/teachers/${teacherId}`, {
         method: 'DELETE',
         headers: {
             Authorization: `Token ${localStorage.getItem('auth_token')}`

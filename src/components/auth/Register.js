@@ -3,12 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import { registerUser } from '../../managers/AuthManager'
 import { getAllSchools } from '../../managers/SchoolsManager'
 
-export const SchoolForm = (props) => {
-    const [school, setSchool] = useState({
-        name: '',
-        school: '',
-        teacher: ''
-    })
 
  
 export const Register = ({ setToken }) => {
@@ -22,7 +16,7 @@ export const Register = ({ setToken }) => {
     const passwordDialog = useRef()
     const navigate = useNavigate()
     const [schools, setSchools] = useState([])
-    const [schoolName, setSchoolName] =useState({
+    const [schoolName, setSchoolName] = useState({
         name: '',
         school: '',
         teacher: ''
@@ -65,7 +59,7 @@ export const Register = ({ setToken }) => {
         copy.school.name = parseInt(event.target.value)
         setSchoolName(copy)
       }
-}
+
 
 
 
@@ -117,7 +111,7 @@ export const Register = ({ setToken }) => {
             </div>
           </div>
         </div>
-        <select className="form-select" required onChange={updateSchoolName}>
+        <select className="form-select" ref={school} required onChange={updateSchoolName}>
                           <option>Please select...</option>
                           {schoolName.map((school) => {
                             return (
